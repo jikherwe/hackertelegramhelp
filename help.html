@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <title>Сигнал о помощи</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="dark-bg">
+    <div class="rain" id="rain"></div>
+
+    <header>
+        <h1>HACKER</h1>
+        <p class="glitch">[ СИГНАЛ SOS ]</p>
+    </header>
+
+    <main>
+        <div class="card">
+            <p>Ваше сообщение будет <strong>зашифровано</strong>.<br>
+            Имя — анонимно. Ответ придет в течение 24 часов.</p>
+
+            <textarea id="sosMsg" rows="6" placeholder="Опишите, что происходит..." style="width:100%; background:#000; color:#0f0; border:1px solid #00ff88; padding:10px; margin:10px 0;"></textarea>
+            <button onclick="sendSOS()" class="alert">Отправить в тень сети 🌐</button>
+        </div>
+
+        <div id="confirm" class="card hidden">
+            <p>✅ Сигнал получен. Шифруется и передаётся по защищённому каналу.<br>
+            <em>Hacker уже работает над вашим делом.</em></p>
+        </div>
+
+        <nav>
+            <a href="index.html"><button>← На главную</button></a>
+        </nav>
+    </main>
+
+    <footer>&copy; <span id="year"></span> | HACKER — Свет в темноте</footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        function sendSOS() {
+            const msg = document.getElementById("sosMsg").value.trim();
+            if (!msg) {
+                alert("Введите сообщение!");
+                return;
+            }
+            document.getElementById("confirm").classList.remove("hidden");
+            document.getElementById("sosMsg").value = "";
+        }
+    </script>
+</body>
+</html>
